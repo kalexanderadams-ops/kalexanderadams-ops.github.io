@@ -1,0 +1,230 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body, div, span, p { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { padding: 24px; background: #ffffff; color: #1a1a1a; max-width: 860px; }
+  .sec-label { font-size: 11px; font-weight: 600; color: #6b6b6b; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 12px; }
+  .legend { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+  .dot { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+  .d-h  { background:#EEEDFE; color:#3C3489; }
+  .d-s  { background:#FAECE7; color:#993C1D; }
+  .d-st { background:#E1F5EE; color:#085041; }
+  .d-g  { background:#FAEEDA; color:#854F0B; }
+  .d-f  { background:#FCEBEB; color:#A32D2D; }
+  .d-fl { background:#E6F1FB; color:#0C447C; }
+  .d-dm { background:#F1EFE8; color:#444441; }
+  .d-p  { background:#FBEAF0; color:#72243E; }
+  .d-j  { background:#EAF3DE; color:#27500A; }
+  .divider { border: none; border-top: 1px solid #e8e8e8; margin: 24px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin: 0 0 9px; }
+  .bar-label { font-size: 12px; color: #555; width: 270px; flex-shrink: 0; line-height: 1.4; }
+  .bar-track { flex: 1; height: 6px; background: #ebebeb; border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; }
+  .bar-count { font-size: 12px; color: #888; width: 32px; text-align: right; flex-shrink: 0; }
+  .theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tc { background: #f7f7f5; border: 1px solid #e8e8e8; border-radius: 8px; padding: 12px 14px; }
+  .tc-name { font-size: 13px; font-weight: 600; color: #1a1a1a; margin: 0 0 4px; }
+  .tc-desc { font-size: 11px; color: #777; margin: 0 0 9px; line-height: 1.5; }
+  .app-dots { display: flex; gap: 4px; flex-wrap: wrap; }
+  .opp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .oc { background: #ffffff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 14px 16px; }
+  .ob { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .ob-hi { background: #FCEBEB; color: #A32D2D; }
+  .ob-md { background: #FAEEDA; color: #854F0B; }
+  .ob-lo { background: #E6F1FB; color: #0C447C; }
+  .ot { font-size: 13px; font-weight: 600; color: #1a1a1a; margin: 0 0 6px; }
+  .od { font-size: 12px; color: #555; line-height: 1.6; }
+</style>
+
+<div class="wrap">
+
+  <div class="sec-label">Apps reviewed (9)</div>
+  <div class="legend">
+    <span class="dot d-h">Hevy</span>
+    <span class="dot d-s">Shred</span>
+    <span class="dot d-st">Strong</span>
+    <span class="dot d-g">Gravl</span>
+    <span class="dot d-f">Fitbod</span>
+    <span class="dot d-fl">Freeletics</span>
+    <span class="dot d-dm">Dr. Muscle</span>
+    <span class="dot d-p">Peloton</span>
+    <span class="dot d-j">JuggernautAI</span>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" style="margin-bottom:14px;">Complaint theme frequency (out of 9 apps)</div>
+
+  <div class="bar-row"><div class="bar-label">Bugs &amp; reliability</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#7F77DD"></div></div><div class="bar-count">9/9</div></div>
+  <div class="bar-row"><div class="bar-label">Pricing / paywall friction</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#7F77DD"></div></div><div class="bar-count">9/9</div></div>
+  <div class="bar-row"><div class="bar-label">AI is "just a tracker" / no real coaching</div><div class="bar-track"><div class="bar-fill" style="width:89%;background:#1D9E75"></div></div><div class="bar-count">8/9</div></div>
+  <div class="bar-row"><div class="bar-label">Subscription / cancellation / refund friction</div><div class="bar-track"><div class="bar-fill" style="width:78%;background:#1D9E75"></div></div><div class="bar-count">7/9</div></div>
+  <div class="bar-row"><div class="bar-label">Equipment / context mismatch</div><div class="bar-track"><div class="bar-fill" style="width:67%;background:#EF9F27"></div></div><div class="bar-count">6/9</div></div>
+  <div class="bar-row"><div class="bar-label">UX friction / too many taps</div><div class="bar-track"><div class="bar-fill" style="width:67%;background:#EF9F27"></div></div><div class="bar-count">6/9</div></div>
+  <div class="bar-row"><div class="bar-label">No long-term progression / randomness</div><div class="bar-track"><div class="bar-fill" style="width:67%;background:#EF9F27"></div></div><div class="bar-count">6/9</div></div>
+  <div class="bar-row"><div class="bar-label">Users "outgrow" the app</div><div class="bar-track"><div class="bar-fill" style="width:56%;background:#EF9F27"></div></div><div class="bar-count">5/9</div></div>
+  <div class="bar-row"><div class="bar-label">Poor wearable integration</div><div class="bar-track"><div class="bar-fill" style="width:44%;background:#D85A30"></div></div><div class="bar-count">4/9</div></div>
+  <div class="bar-row"><div class="bar-label">Ignored preferences / injury constraints</div><div class="bar-track"><div class="bar-fill" style="width:44%;background:#D85A30"></div></div><div class="bar-count">4/9</div></div>
+  <div class="bar-row"><div class="bar-label">Commercialisation / intrusive upsell</div><div class="bar-track"><div class="bar-fill" style="width:44%;background:#D85A30"></div></div><div class="bar-count">4/9</div></div>
+  <div class="bar-row"><div class="bar-label">Safety / overtraining risk</div><div class="bar-track"><div class="bar-fill" style="width:33%;background:#B4B2A9"></div></div><div class="bar-count">3/9</div></div>
+  <div class="bar-row"><div class="bar-label">Offline / low-connectivity gaps</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:#B4B2A9"></div></div><div class="bar-count">2/9</div></div>
+
+  <hr class="divider">
+
+  <div class="sec-label" style="margin-bottom:14px;">By app — which themes appear where</div>
+  <div class="theme-grid">
+
+    <div class="tc">
+      <div class="tc-name">Bugs &amp; reliability</div>
+      <div class="tc-desc">Crashes, data loss, sync failures, regressions after updates</div>
+      <div class="app-dots">
+        <span class="dot d-h">Hevy</span><span class="dot d-s">Shred</span><span class="dot d-st">Strong</span><span class="dot d-g">Gravl</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-dm">Dr. Muscle</span><span class="dot d-p">Peloton</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Pricing / paywall friction</div>
+      <div class="tc-desc">Limits hit mid-onboarding, hidden costs, poor free tier</div>
+      <div class="app-dots">
+        <span class="dot d-h">Hevy</span><span class="dot d-s">Shred</span><span class="dot d-st">Strong</span><span class="dot d-g">Gravl</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-dm">Dr. Muscle</span><span class="dot d-p">Peloton</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Just a tracker, no coaching</div>
+      <div class="tc-desc">"AI" label sets expectations that the app never meets</div>
+      <div class="app-dots">
+        <span class="dot d-h">Hevy</span><span class="dot d-s">Shred</span><span class="dot d-st">Strong</span><span class="dot d-g">Gravl</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-dm">Dr. Muscle</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Subscription / cancellation friction</div>
+      <div class="tc-desc">Auto-renewals, impossible to cancel, refunds denied</div>
+      <div class="app-dots">
+        <span class="dot d-s">Shred</span><span class="dot d-st">Strong</span><span class="dot d-g">Gravl</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-dm">Dr. Muscle</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Equipment / context mismatch</div>
+      <div class="tc-desc">Prescribes gear users don't own or can't access</div>
+      <div class="app-dots">
+        <span class="dot d-s">Shred</span><span class="dot d-st">Strong</span><span class="dot d-g">Gravl</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">UX friction</div>
+      <div class="tc-desc">Too many taps, clunky flows, confusing dashboards</div>
+      <div class="app-dots">
+        <span class="dot d-h">Hevy</span><span class="dot d-s">Shred</span><span class="dot d-st">Strong</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-p">Peloton</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">No real long-term progression</div>
+      <div class="tc-desc">Random workouts, stalled weights, no coherent arc</div>
+      <div class="app-dots">
+        <span class="dot d-h">Hevy</span><span class="dot d-g">Gravl</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-dm">Dr. Muscle</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Users outgrow the app</div>
+      <div class="tc-desc">Great for beginners; intermediate+ feel underserved and churn</div>
+      <div class="app-dots">
+        <span class="dot d-g">Gravl</span><span class="dot d-s">Shred</span><span class="dot d-f">Fitbod</span><span class="dot d-fl">Freeletics</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Ignored preferences / injuries</div>
+      <div class="tc-desc">Disliked exercises return; injury substitutions are still wrong</div>
+      <div class="app-dots">
+        <span class="dot d-s">Shred</span><span class="dot d-g">Gravl</span><span class="dot d-f">Fitbod</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Intrusive upsell / commercialisation</div>
+      <div class="tc-desc">In-session ads, full-screen promos, shop links everywhere</div>
+      <div class="app-dots">
+        <span class="dot d-fl">Freeletics</span><span class="dot d-dm">Dr. Muscle</span><span class="dot d-p">Peloton</span><span class="dot d-j">JuggernautAI</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Poor wearable integration</div>
+      <div class="tc-desc">Flaky Apple Watch sync, no Wear OS, battery drain</div>
+      <div class="app-dots">
+        <span class="dot d-h">Hevy</span><span class="dot d-st">Strong</span><span class="dot d-g">Gravl</span><span class="dot d-p">Peloton</span>
+      </div>
+    </div>
+
+    <div class="tc">
+      <div class="tc-name">Safety / overtraining risk</div>
+      <div class="tc-desc">Reckless volume ramp-up; injuries; no recovery guidance</div>
+      <div class="app-dots">
+        <span class="dot d-fl">Freeletics</span><span class="dot d-j">JuggernautAI</span><span class="dot d-f">Fitbod</span>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" style="margin-bottom:14px;">Opportunity areas for a new AI fitness app</div>
+  <div class="opp-grid">
+
+    <div class="oc">
+      <span class="ob ob-hi">Highest signal — 9/9 apps</span>
+      <div class="ot">Rock-solid reliability as a core feature</div>
+      <div class="od">Every single app generates its worst reviews from bugs, crashes, and data loss — often after updates. Multiple reviewers across multiple apps explicitly say they would give 5 stars were it not for reliability failures. Being the app that never loses a workout is a genuine differentiator, not a baseline.</div>
+    </div>
+
+    <div class="oc">
+      <span class="ob ob-hi">Highest signal — 9/9 apps</span>
+      <div class="ot">Transparent, honest pricing model</div>
+      <div class="od">Every app frustrates users with paywalls hit mid-onboarding, billing surprises, auto-renewals with no reminders, and refund stonewalling. A genuinely fair model — a useful free tier, clear pricing shown upfront, easy cancellation — would be an immediate differentiator in a category where trust is chronically low.</div>
+    </div>
+
+    <div class="oc">
+      <span class="ob ob-hi">Very high signal — 8/9 apps</span>
+      <div class="ot">Genuine AI coaching, not just logging</div>
+      <div class="od">Eight of nine apps are criticised as "just a tracker." The "AI" label raises an expectation of real decisions — adaptive loads, intelligent progression, sessions that respond to how you're actually doing. No app in this dataset convincingly delivers that. The coaching gap is the biggest product opportunity in the category.</div>
+    </div>
+
+    <div class="oc">
+      <span class="ob ob-hi">Very high signal — 7/9 apps</span>
+      <div class="ot">Frictionless subscription management</div>
+      <div class="od">Surprise auto-renewals, email-only cancellation flows, and blanket no-refund policies generate some of the most emotionally charged 1-star reviews across the dataset — including Guardian consumer complaint coverage and Trustpilot escalations. Clean, standard, app-store-native subscription management would neutralise a significant source of brand damage.</div>
+    </div>
+
+    <div class="oc">
+      <span class="ob ob-md">Strong signal — 6/9 apps</span>
+      <div class="ot">Real-world context awareness</div>
+      <div class="od">Six apps prescribe equipment users don't own, exercises incompatible with busy gyms, or circuits that require multiple stations simultaneously. An AI that genuinely understands your actual setup — what you have, where you are, what's available right now — and adjusts accordingly solves a persistent daily frustration.</div>
+    </div>
+
+    <div class="oc">
+      <span class="ob ob-md">Strong signal — 6/9 apps</span>
+      <div class="ot">A plan that grows with the user</div>
+      <div class="od">Five apps share an identical churn arc: excellent for beginners, abandoned by intermediates who feel the programming no longer challenges them. An AI with genuinely distinct modes for different experience levels — and smooth, earned transitions between them — retains users through the phase where every existing app loses them.</div>
+    </div>
+
+    <div class="oc">
+      <span class="ob ob-md">Strong signal — 4/9 apps</span>
+      <div class="ot">Preferences and constraints that actually stick</div>
+      <div class="od">Fitbod, Shred, Gravl, and JuggernautAI all share the same failure: disliked exercises return despite explicit downvotes, and injury constraints are only partially respected. An AI that truly learns and enforces what you cannot or will not do — and never forgets it — builds a level of trust that no current app provides.</div>
+    </div>
+
+    <div class="oc">
+      <span class="ob ob-lo">Emerging signal — 3/9 apps</span>
+      <div class="ot">Recovery and safety awareness</div>
+      <div class="od">Freeletics, JuggernautAI, and Fitbod all generate complaints about excessive volume, reckless intensity ramp-up, and no recovery guidance. As AI coaching gets more serious, an app that actively monitors overtraining signals and modulates load intelligently — rather than just pushing harder — occupies a meaningful and underserved position.</div>
+    </div>
+
+  </div>
+
+</div>
