@@ -1,0 +1,161 @@
+
+<style>
+.section-label { font-size: 13px; color: var(--color-text-secondary); margin: 1.5rem 0 0.5rem; font-weight: 500; }
+.metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.metric-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.75rem 1rem; }
+.metric-card .label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
+.metric-card .value { font-size: 22px; font-weight: 500; color: var(--color-text-primary); line-height: 1.1; }
+.metric-card .sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 3px; }
+.chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 1.5rem; }
+.chart-wrap { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+.chart-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px; }
+.legend-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; font-size: 11px; color: var(--color-text-secondary); }
+.legend-row span { display: flex; align-items: center; gap: 4px; }
+.legend-row .swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+</style>
+
+<div style="padding: 1rem 0;">
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="label">Global daily users</div>
+      <div class="value">100M+</div>
+      <div class="sub">Worldwide</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Americans using fitness apps</div>
+      <div class="value">74%</div>
+      <div class="sub">At least one app</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Primary gender</div>
+      <div class="value">60%</div>
+      <div class="sub">Female users</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Core age range</div>
+      <div class="value">18–45</div>
+      <div class="sub">Largest user segment</div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-wrap">
+      <div class="chart-title">Gender breakdown</div>
+      <div class="legend-row">
+        <span><span class="swatch" style="background:#3266ad"></span>Female 60%</span>
+        <span><span class="swatch" style="background:#73726c"></span>Male 40%</span>
+      </div>
+      <div style="position:relative;height:180px;"><canvas id="genderChart"></canvas></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Age group distribution</div>
+      <div class="legend-row">
+        <span><span class="swatch" style="background:#3266ad"></span>Usage share</span>
+      </div>
+      <div style="position:relative;height:180px;"><canvas id="ageChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-wrap">
+      <div class="chart-title">Workout location preference</div>
+      <div class="legend-row">
+        <span><span class="swatch" style="background:#1d9e75"></span>Home 80%</span>
+        <span><span class="swatch" style="background:#73726c"></span>Gym 20%</span>
+      </div>
+      <div style="position:relative;height:180px;"><canvas id="locationChart"></canvas></div>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Weekly usage frequency</div>
+      <div class="legend-row">
+        <span><span class="swatch" style="background:#3266ad"></span>Users</span>
+      </div>
+      <div style="position:relative;height:180px;"><canvas id="usageChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-wrap" style="margin-bottom:1.5rem;">
+    <div class="chart-title">Platform preference</div>
+    <div class="legend-row">
+      <span><span class="swatch" style="background:#3266ad"></span>iOS 60%</span>
+      <span><span class="swatch" style="background:#73726c"></span>Android 40%</span>
+    </div>
+    <div style="position:relative;height:120px;"><canvas id="platformChart"></canvas></div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const textColor = isDark ? '#c2c0b6' : '#3d3d3a';
+const gridColor = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)';
+
+new Chart(document.getElementById('genderChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Female', 'Male'],
+    datasets: [{ data: [60, 40], backgroundColor: ['#3266ad','#a0a09a'], borderWidth: 0 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+});
+
+new Chart(document.getElementById('ageChart'), {
+  type: 'bar',
+  data: {
+    labels: ['18–24', '25–34', '35–44', '45–54', '55–64', '65+'],
+    datasets: [{ data: [22, 30, 24, 14, 7, 3], backgroundColor: '#3266ad', borderRadius: 4, borderSkipped: false }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: textColor, font: { size: 11 } }, grid: { display: false } },
+      y: { ticks: { color: textColor, font: { size: 11 }, callback: v => v + '%' }, grid: { color: gridColor } }
+    }
+  }
+});
+
+new Chart(document.getElementById('locationChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Home workouts', 'Gym-based'],
+    datasets: [{ data: [80, 20], backgroundColor: ['#1d9e75','#a0a09a'], borderWidth: 0 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+});
+
+new Chart(document.getElementById('usageChart'), {
+  type: 'bar',
+  data: {
+    labels: ['1–2x/wk', '3–5x/wk', '6–9x/wk', '10+ x/wk'],
+    datasets: [{ data: [18, 26, 30, 26], backgroundColor: ['#7aaee0','#4e8dd1','#3266ad','#1a4b8a'], borderRadius: 4, borderSkipped: false }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: textColor, font: { size: 11 } }, grid: { display: false } },
+      y: { ticks: { color: textColor, font: { size: 11 }, callback: v => v + '%' }, grid: { color: gridColor } }
+    }
+  }
+});
+
+new Chart(document.getElementById('platformChart'), {
+  type: 'bar',
+  data: {
+    labels: ['iOS', 'Android'],
+    datasets: [{ data: [60, 40], backgroundColor: ['#3266ad','#73726c'], borderRadius: 4, borderSkipped: false }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: textColor, font: { size: 11 }, callback: v => v + '%' }, grid: { color: gridColor }, max: 80 },
+      y: { ticks: { color: textColor, font: { size: 11 } }, grid: { display: false } }
+    }
+  }
+});
+</script>
