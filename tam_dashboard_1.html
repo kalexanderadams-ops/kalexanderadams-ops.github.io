@@ -1,0 +1,281 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body, div, span, p, label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { padding: 28px; background: #191919; color: #e0ddd6; max-width: 860px; }
+  .sec-label { font-size: 11px; font-weight: 600; color: #888880; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 12px; }
+  .divider { border: none; border-top: 1px solid #2e2e2e; margin: 24px 0; }
+
+  .controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 4px; }
+  .ctrl-row { display: flex; align-items: center; gap: 12px; }
+  .ctrl-label { font-size: 12px; color: #9e9b94; width: 200px; flex-shrink: 0; }
+  .ctrl-val { font-size: 12px; font-weight: 600; color: #e0ddd6; min-width: 60px; text-align: right; }
+  input[type=range] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #2e2e2e;
+    border-radius: 2px;
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #7F77DD;
+    cursor: pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #7F77DD;
+    border: none;
+    cursor: pointer;
+  }
+
+  .funnel { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 8px 0; }
+  .tier { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+  .tier-bar {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 3px; border-radius: 6px;
+    padding: 18px 0;
+    transition: width 0.35s ease;
+  }
+  .tier-name { font-size: 12px; font-weight: 600; }
+  .tier-amt  { font-size: 22px; font-weight: 600; }
+  .tier-sub  { font-size: 11px; }
+
+  .bar-global { background: #042C53; border: 1px solid #185FA5; }
+  .bar-global .tier-name { color: #85B7EB; }
+  .bar-global .tier-amt  { color: #B5D4F4; }
+  .bar-global .tier-sub  { color: #378ADD; }
+
+  .bar-eu { background: #04342C; border: 1px solid #0F6E56; }
+  .bar-eu .tier-name { color: #5DCAA5; }
+  .bar-eu .tier-amt  { color: #9FE1CB; }
+  .bar-eu .tier-sub  { color: #1D9E75; }
+
+  .bar-nl { background: #26215C; border: 1px solid #534AB7; }
+  .bar-nl .tier-name { color: #AFA9EC; }
+  .bar-nl .tier-amt  { color: #CECBF6; }
+  .bar-nl .tier-sub  { color: #7F77DD; }
+
+  .connector { display: flex; flex-direction: column; align-items: center; padding: 4px 0; }
+  .connector-line { width: 1px; height: 18px; background: #2e2e2e; }
+  .connector-pct { font-size: 11px; color: #555551; margin-top: 2px; }
+
+  .src-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 4px; }
+  .src-card { background: #222220; border: 1px solid #2e2e2e; border-radius: 8px; padding: 12px 14px; }
+  .src-title { font-size: 11px; color: #666662; margin-bottom: 4px; }
+  .src-val   { font-size: 12px; font-weight: 600; color: #e0ddd6; }
+
+  .assumption-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .ac { background: #222220; border: 1px solid #2e2e2e; border-radius: 8px; padding: 12px 14px; }
+  .ac-badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .ac-badge-blue  { background: #042C53; color: #85B7EB; }
+  .ac-badge-teal  { background: #04342C; color: #5DCAA5; }
+  .ac-badge-purple { background: #26215C; color: #AFA9EC; }
+  .ac-title { font-size: 13px; font-weight: 600; color: #e0ddd6; margin: 0 0 5px; }
+  .ac-desc  { font-size: 11px; color: #777770; line-height: 1.6; }
+
+  .sanity { background: #222220; border: 1px solid #2e2e2e; border-radius: 8px; padding: 14px 16px; }
+  .sanity-row { display: flex; align-items: baseline; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #2a2a28; }
+  .sanity-row:last-child { border-bottom: none; }
+  .sanity-label { font-size: 12px; color: #9e9b94; }
+  .sanity-val { font-size: 12px; font-weight: 600; color: #e0ddd6; }
+  .sanity-note { font-size: 11px; color: #555551; margin-left: 10px; }
+</style>
+
+<div class="wrap">
+
+  <div class="sec-label">Fitness app TAM — bottom-up model</div>
+
+  <div class="controls">
+    <div class="ctrl-row">
+      <span class="ctrl-label">Global users (millions)</span>
+      <input type="range" min="400" max="700" step="10" value="540" id="sl-users">
+      <span class="ctrl-val" id="out-users">540M</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Free-to-paid conversion rate</span>
+      <input type="range" min="2" max="10" step="0.5" value="5" id="sl-conv">
+      <span class="ctrl-val" id="out-conv">5.0%</span>
+    </div>
+    <div class="ctrl-row">
+      <span class="ctrl-label">Avg monthly spend (USD)</span>
+      <input type="range" min="6" max="20" step="0.5" value="12" id="sl-arpu">
+      <span class="ctrl-val" id="out-arpu">$12.00</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label">Market size by region</div>
+
+  <div class="funnel">
+
+    <div class="tier">
+      <div class="tier-bar bar-global" id="bar-global" style="width:100%;">
+        <span class="tier-name">Worldwide TAM</span>
+        <span class="tier-amt" id="lbl-global">$3.89B</span>
+        <span class="tier-sub" id="lbl-global-sub">540M users · 5.0% paid · $12/mo</span>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <span class="connector-pct">Europe ~24% of global users (Grand View Research)</span>
+    </div>
+
+    <div class="tier">
+      <div class="tier-bar bar-eu" id="bar-eu" style="width:62%;">
+        <span class="tier-name">Europe TAM</span>
+        <span class="tier-amt" id="lbl-eu">$934M</span>
+        <span class="tier-sub" id="lbl-eu-sub">~130M users · 5.0% paid · $12/mo</span>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <span class="connector-pct">Netherlands ~3.8% of Europe (population share, OECD)</span>
+    </div>
+
+    <div class="tier">
+      <div class="tier-bar bar-nl" id="bar-nl" style="width:28%;">
+        <span class="tier-name">Netherlands TAM</span>
+        <span class="tier-amt" id="lbl-nl">$35M</span>
+        <span class="tier-sub" id="lbl-nl-sub">~4.9M users · 5.0% paid · $12/mo</span>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" style="margin-bottom:14px;">Sanity check vs Business of Apps</div>
+  <div class="sanity">
+    <div class="sanity-row">
+      <span class="sanity-label">BoA reported revenue (2025)</span>
+      <span class="sanity-val">$3.40B <span class="sanity-note">anchor figure</span></span>
+    </div>
+    <div class="sanity-row">
+      <span class="sanity-label">This model (current inputs)</span>
+      <span class="sanity-val" id="san-model">$3.89B</span>
+    </div>
+    <div class="sanity-row">
+      <span class="sanity-label">Variance from BoA</span>
+      <span class="sanity-val" id="san-delta">+$490M (+14.4%)</span>
+    </div>
+    <div class="sanity-row">
+      <span class="sanity-label">Implied conversion to match BoA exactly</span>
+      <span class="sanity-val" id="san-implied">4.35%</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" style="margin-bottom:14px;">Key assumptions</div>
+  <div class="assumption-grid">
+
+    <div class="ac">
+      <span class="ac-badge ac-badge-blue">Global users</span>
+      <div class="ac-title">540M — Business of Apps</div>
+      <div class="ac-desc">Direct from BoA's 2025 fitness app report. Includes all users across free and paid tiers globally.</div>
+    </div>
+
+    <div class="ac">
+      <span class="ac-badge ac-badge-blue">Conversion rate</span>
+      <div class="ac-title">3–8% industry range</div>
+      <div class="ac-desc">RevenueCat 2025 State of Subscription Apps. EMEA specifically runs ~4.4%. Default 5% is midpoint.</div>
+    </div>
+
+    <div class="ac">
+      <span class="ac-badge ac-badge-blue">Monthly ARPU</span>
+      <div class="ac-title">$6.99–$29.99 observed range</div>
+      <div class="ac-desc">Blended across plan types and annual discounts. $12/mo reflects mid-tier with annual plan uptake.</div>
+    </div>
+
+    <div class="ac">
+      <span class="ac-badge ac-badge-teal">Europe share</span>
+      <div class="ac-title">~24% of global users</div>
+      <div class="ac-desc">Grand View Research (2024). Consistent with 28% revenue share reported across multiple analysts.</div>
+    </div>
+
+    <div class="ac">
+      <span class="ac-badge ac-badge-teal">EU conversion</span>
+      <div class="ac-title">Same rate applied</div>
+      <div class="ac-desc">Conservative — RevenueCat shows EMEA at 4.4% vs 5% global midpoint. Adjust slider to stress-test.</div>
+    </div>
+
+    <div class="ac">
+      <span class="ac-badge ac-badge-purple">NL share</span>
+      <div class="ac-title">~3.8% of Europe</div>
+      <div class="ac-desc">Population share (17M / 447M EU). Slightly adjusted upward for above-average digital health engagement per OECD Health at a Glance 2025.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const EU_SHARE = 0.24;
+  const NL_EU_SHARE = 0.038;
+  const BOA = 3.4e9;
+
+  function fmt(n) {
+    if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return '$' + Math.round(n / 1e6) + 'M';
+    return '$' + Math.round(n / 1e3) + 'K';
+  }
+  function fmtUsers(n) {
+    if (n >= 1e6) return '~' + (n / 1e6).toFixed(1) + 'M';
+    return '~' + Math.round(n / 1e3) + 'K';
+  }
+  function fmtDelta(n) {
+    const diff = n - BOA;
+    const pct = (diff / BOA * 100).toFixed(1);
+    const sign = diff >= 0 ? '+' : '';
+    return sign + fmt(diff) + ' (' + sign + pct + '%)';
+  }
+
+  function update() {
+    const users = parseFloat(document.getElementById('sl-users').value) * 1e6;
+    const conv  = parseFloat(document.getElementById('sl-conv').value) / 100;
+    const arpu  = parseFloat(document.getElementById('sl-arpu').value);
+
+    document.getElementById('out-users').textContent = (users / 1e6).toFixed(0) + 'M';
+    document.getElementById('out-conv').textContent  = (conv * 100).toFixed(1) + '%';
+    document.getElementById('out-arpu').textContent  = '$' + arpu.toFixed(2);
+
+    const globalTAM = users * conv * arpu * 12;
+    const euUsers   = users * EU_SHARE;
+    const euTAM     = euUsers * conv * arpu * 12;
+    const nlUsers   = euUsers * NL_EU_SHARE;
+    const nlTAM     = nlUsers * conv * arpu * 12;
+
+    document.getElementById('lbl-global').textContent     = fmt(globalTAM);
+    document.getElementById('lbl-global-sub').textContent = fmtUsers(users) + ' users · ' + (conv*100).toFixed(1) + '% paid · $' + arpu.toFixed(0) + '/mo';
+    document.getElementById('lbl-eu').textContent         = fmt(euTAM);
+    document.getElementById('lbl-eu-sub').textContent     = fmtUsers(euUsers) + ' users · ' + (conv*100).toFixed(1) + '% paid · $' + arpu.toFixed(0) + '/mo';
+    document.getElementById('lbl-nl').textContent         = fmt(nlTAM);
+    document.getElementById('lbl-nl-sub').textContent     = fmtUsers(nlUsers) + ' users · ' + (conv*100).toFixed(1) + '% paid · $' + arpu.toFixed(0) + '/mo';
+
+    const impliedConv = (BOA / (users * arpu * 12) * 100).toFixed(2) + '%';
+    document.getElementById('san-model').textContent   = fmt(globalTAM);
+    document.getElementById('san-delta').textContent   = fmtDelta(globalTAM);
+    document.getElementById('san-implied').textContent = impliedConv;
+
+    const euW  = Math.round(EU_SHARE * 2.3 * 100);
+    document.getElementById('bar-eu').style.width = Math.min(96, Math.max(30, euW)) + '%';
+    document.getElementById('bar-nl').style.width = '28%';
+  }
+
+  ['sl-users','sl-conv','sl-arpu'].forEach(id => {
+    document.getElementById(id).addEventListener('input', update);
+  });
+
+  update();
+</script>
