@@ -1,0 +1,248 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  div, span, p { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { padding: 28px; background: #191919; color: #e0ddd6; }
+  .sec-label { font-size: 11px; font-weight: 600; color: #888880; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 12px; }
+  .divider { border: none; border-top: 1px solid #2e2e2e; margin: 24px 0; }
+
+  .dot { font-size: 11px; padding: 3px 8px; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+  .d-h  { background:#26215C; color:#AFA9EC; }
+  .d-s  { background:#4A1B0C; color:#F0997B; }
+  .d-st { background:#04342C; color:#5DCAA5; }
+  .d-g  { background:#412402; color:#EF9F27; }
+  .d-f  { background:#501313; color:#F09595; }
+  .d-fl { background:#042C53; color:#85B7EB; }
+  .d-dm { background:#2C2C2A; color:#B4B2A9; }
+  .d-p  { background:#4B1528; color:#ED93B1; }
+  .d-j  { background:#173404; color:#97C459; }
+  .d-cy { background:#173404; color:#97C459; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  .cc { background: #222220; border: 1px solid #2e2e2e; border-radius: 8px; padding: 14px 16px; }
+  .cc-name { font-size: 13px; font-weight: 600; color: #e0ddd6; margin: 0 0 2px; }
+  .cc-audience { font-size: 11px; color: #555551; margin: 0 0 10px; }
+
+  .ai-row { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; }
+  .ai-track { flex: 1; height: 4px; background: #2e2e2e; border-radius: 2px; overflow: hidden; }
+  .ai-fill { height: 100%; border-radius: 2px; }
+  .ai-label { font-size: 10px; color: #666662; min-width: 48px; text-align: right; }
+
+  .attr-row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px solid #252523; }
+  .attr-row:last-child { border-bottom: none; }
+  .attr-k { font-size: 11px; color: #666662; }
+  .attr-v { font-size: 11px; font-weight: 600; color: #9e9b94; text-align: right; }
+
+  .pill { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 4px; }
+  .pill-hi  { background: #04342C; color: #5DCAA5; }
+  .pill-mid { background: #412402; color: #EF9F27; }
+  .pill-lo  { background: #501313; color: #F09595; }
+
+  .complaint { font-size: 10px; color: #555551; font-style: italic; margin-top: 8px; padding-left: 7px; border-left: 2px solid #2e2e2e; line-height: 1.5; }
+
+  .cycles-wrap { background: #121f0f; border: 1px solid #1D4D0F; border-radius: 10px; padding: 20px; }
+  .cycles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .cycles-block-title { font-size: 11px; font-weight: 600; color: #497A28; text-transform: uppercase; letter-spacing: .07em; margin: 0 0 8px; }
+  .cycles-attr-row { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px solid #1a2e14; }
+  .cycles-attr-row:last-child { border-bottom: none; }
+  .cycles-attr-k { font-size: 11px; color: #497A28; }
+  .cycles-attr-v { font-size: 11px; font-weight: 600; color: #97C459; text-align: right; max-width: 55%; }
+
+  .cycles-header { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; }
+  .cycles-title { font-size: 14px; font-weight: 600; color: #97C459; }
+  .cycles-badge { font-size: 10px; font-weight: 600; background: #173404; color: #639922; border-radius: 4px; padding: 2px 8px; }
+
+  .tier-header { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; }
+  .tier-label-text { font-size: 11px; font-weight: 600; color: #888880; text-transform: uppercase; letter-spacing: .08em; }
+  .tier-line { flex: 1; height: 1px; background: #2e2e2e; }
+</style>
+
+<div class="wrap">
+
+  <div class="sec-label" style="margin-bottom:16px;">Competitive landscape — 9 apps benchmarked</div>
+
+  <div class="tier-header">
+    <span class="tier-label-text">Trackers & loggers</span><div class="tier-line"></div><span style="font-size:10px;color:#555551;">Low AI depth</span>
+  </div>
+  <div class="grid-2" style="margin-bottom:18px;">
+
+    <div class="cc">
+      <p class="cc-name">Hevy <span class="dot d-h" style="font-size:10px;padding:2px 6px;vertical-align:middle;">H</span></p>
+      <p class="cc-audience">Intermediate–advanced · male-skewed · North America</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:12%;background:#D85A30;"></div></div><span class="ai-label">Very low</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">~$9/mo</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS + Android</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-hi">Genuinely useful</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-lo">Limited / logging only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-hi">Low</span></span></div>
+      <p class="complaint">"Feature gaps vs. broader coaching apps; users want more advanced programming"</p>
+    </div>
+
+    <div class="cc">
+      <p class="cc-name">Strong <span class="dot d-st" style="font-size:10px;padding:2px 6px;vertical-align:middle;">St</span></p>
+      <p class="cc-audience">Intermediate–advanced · male-skewed · English-speaking</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:5%;background:#D85A30;"></div></div><span class="ai-label">Very low</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">~$5/mo or lifetime</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS + Android</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-mid">Core logging only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-lo">Apple Watch only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-hi">Low</span></span></div>
+      <p class="complaint">"Lack of updates; no community features; slower momentum than newer apps"</p>
+    </div>
+
+  </div>
+
+  <div class="tier-header">
+    <span class="tier-label-text">Content & class-based</span><div class="tier-line"></div><span style="font-size:10px;color:#555551;">Low–medium AI depth</span>
+  </div>
+  <div class="grid-3" style="margin-bottom:18px;">
+
+    <div class="cc">
+      <p class="cc-name">Peloton <span class="dot d-p" style="font-size:10px;padding:2px 6px;vertical-align:middle;">P</span></p>
+      <p class="cc-audience">Beginner–intermediate · slightly female · US-first</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:22%;background:#EF9F27;"></div></div><span class="ai-label">Low–mid</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">$13–16/mo</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS + Android</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-lo">Sampler only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-hi">Strong (HR ecosystem)</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-hi">Standard</span></span></div>
+      <p class="complaint">"Price vs. value for non-equipment users"</p>
+    </div>
+
+    <div class="cc">
+      <p class="cc-name">Freeletics <span class="dot d-fl" style="font-size:10px;padding:2px 6px;vertical-align:middle;">Fl</span></p>
+      <p class="cc-audience">Beginner–intermediate · bodyweight/HIIT · Europe-strong</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:48%;background:#EF9F27;"></div></div><span class="ai-label">Medium</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">~$12/mo equiv.</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS + Android</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-mid">Intro only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-mid">Apple/Google Fit</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-hi">Standard</span></span></div>
+      <p class="complaint">"Too generic; users want more explicit workout detail and control"</p>
+    </div>
+
+    <div class="cc">
+      <p class="cc-name">Shred <span class="dot d-s" style="font-size:10px;padding:2px 6px;vertical-align:middle;">S</span></p>
+      <p class="cc-audience">Beginner–intermediate · mixed · US app-store-strong</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:48%;background:#EF9F27;"></div></div><span class="ai-label">Medium</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">$20/mo · 4.8 ★</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS + Android</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-lo">Teaser only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-hi">Apple Watch + Spotify</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-mid">Annual-only trial</span></span></div>
+      <p class="complaint">"Android instability; trial tied to annual plan only"</p>
+    </div>
+
+  </div>
+
+  <div class="tier-header">
+    <span class="tier-label-text">AI coaching leaders</span><div class="tier-line"></div><span style="font-size:10px;color:#555551;">High AI depth</span>
+  </div>
+  <div class="grid-3" style="margin-bottom:18px;">
+
+    <div class="cc">
+      <p class="cc-name">JuggernautAI <span class="dot d-j" style="font-size:10px;padding:2px 6px;vertical-align:middle;">J</span></p>
+      <p class="cc-audience">Advanced powerlifters · male-skewed · strength niche</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:85%;background:#5DCAA5;"></div></div><span class="ai-label">High</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">€35/mo</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS (Android unverified)</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-mid">Trial only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-lo">Not established</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-hi">Standard</span></span></div>
+      <p class="complaint">"Too powerlifting-specific and demanding to use correctly"</p>
+    </div>
+
+    <div class="cc">
+      <p class="cc-name">Fitbod <span class="dot d-f" style="font-size:10px;padding:2px 6px;vertical-align:middle;">F</span></p>
+      <p class="cc-audience">Intermediate–advanced gym-goers · US-strong</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:62%;background:#5DCAA5;"></div></div><span class="ai-label">Med–high</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">$13/mo · 4.82 ★</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS + Android</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-lo">Teaser only</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-hi">Apple, Strava, Fitbit</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-hi">Standard</span></span></div>
+      <p class="complaint">"Rigid plans; AI feels detached from real-world context"</p>
+    </div>
+
+    <div class="cc">
+      <p class="cc-name">Dr. Muscle <span class="dot d-dm" style="font-size:10px;padding:2px 6px;vertical-align:middle;">DM</span></p>
+      <p class="cc-audience">Intermediate–advanced · male-skewed · English niche</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:62%;background:#5DCAA5;"></div></div><span class="ai-label">Med–high</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">$70–80/mo · 4.5 ★</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS (Android unverified)</span></div>
+      <div class="attr-row"><span class="attr-k">Free tier</span><span class="attr-v"><span class="pill pill-mid">Exists, limited</span></span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-lo">Not established</span></span></div>
+      <div class="attr-row"><span class="attr-k">Cancel friction</span><span class="attr-v"><span class="pill pill-hi">Standard</span></span></div>
+      <p class="complaint">"Price — materially more expensive than all peers"</p>
+    </div>
+
+  </div>
+
+  <div class="tier-header">
+    <span class="tier-label-text">Emerging / niche</span><div class="tier-line"></div>
+  </div>
+  <div style="margin-bottom:0; max-width: 320px;">
+    <div class="cc">
+      <p class="cc-name">Gravl <span class="dot d-g" style="font-size:10px;padding:2px 6px;vertical-align:middle;">G</span></p>
+      <p class="cc-audience">Beginner–intermediate · personal-trainer feel · iOS-first</p>
+      <div class="ai-row"><span style="font-size:10px;color:#555551;">AI depth</span><div class="ai-track"><div class="ai-fill" style="width:42%;background:#EF9F27;"></div></div><span class="ai-label">Moderate</span></div>
+      <div class="attr-row"><span class="attr-k">Price</span><span class="attr-v">$15/mo · 4.9 ★</span></div>
+      <div class="attr-row"><span class="attr-k">Platform</span><span class="attr-v">iOS (Android unverified)</span></div>
+      <div class="attr-row"><span class="attr-k">Wearables</span><span class="attr-v"><span class="pill pill-lo">Not established</span></span></div>
+      <p class="complaint">"Insufficient data to surface a dominant complaint theme"</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" style="margin-bottom:14px;">Cycles (Working Title) — internal targets</div>
+
+  <div class="cycles-wrap">
+    <div class="cycles-header">
+      <span class="cycles-title">Cycles</span>
+      <span class="cycles-badge">Not a competitor — product benchmark</span>
+    </div>
+
+    <div class="cycles-grid">
+
+      <div>
+        <p class="cycles-block-title">Audience & market</p>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Target user</span><span class="cycles-attr-v">Beginners & early intermediates, slightly female-skewed</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Launch market</span><span class="cycles-attr-v">Netherlands → Europe</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Platform priority</span><span class="cycles-attr-v">iOS + Android (priority TBD)</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Rating target</span><span class="cycles-attr-v">4.9 ★</span></div>
+      </div>
+
+      <div>
+        <p class="cycles-block-title">Product targets</p>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">AI coaching depth</span><span class="cycles-attr-v">Very high — near-human level</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Personalization</span><span class="cycles-attr-v">Goals, fatigue, weak points, injuries</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Progression</span><span class="cycles-attr-v">Science-backed, muscle & strength</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Reliability</span><span class="cycles-attr-v">Minimal crashes, sound logic</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">UX</span><span class="cycles-attr-v">Simple, clean, frictionless flows</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Wearables</span><span class="cycles-attr-v">All mainstream devices</span></div>
+      </div>
+
+      <div>
+        <p class="cycles-block-title">Pricing model</p>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Model</span><span class="cycles-attr-v">Free trial + subscription</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Price range</span><span class="cycles-attr-v">€10–20/mo</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Free trial</span><span class="cycles-attr-v">Full value — not a teaser</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">Cancellation</span><span class="cycles-attr-v">Standard, minimal friction</span></div>
+      </div>
+
+      <div>
+        <p class="cycles-block-title">Key differentiators vs. field</p>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">vs. Hevy / Strong</span><span class="cycles-attr-v">Real coaching, not just logging</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">vs. JuggernautAI</span><span class="cycles-attr-v">Beginner-accessible, broader scope</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">vs. Dr. Muscle</span><span class="cycles-attr-v">Accessible price, female-inclusive</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">vs. Freeletics</span><span class="cycles-attr-v">Gym-first, wearable-native, explicit plans</span></div>
+        <div class="cycles-attr-row"><span class="cycles-attr-k">vs. Fitbod</span><span class="cycles-attr-v">Context-aware, injury-respecting</span></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
